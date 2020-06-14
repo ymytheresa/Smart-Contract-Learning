@@ -22,7 +22,7 @@ contract paymentExample {
 		mapping(uint => Payment) payments;
 	}
 
-	//teling which EOA account transferred money to this contract account
+	// teling which EOA account transferred money to this contract account
 	// balanceReceived[address] = Balance instance
 	mapping(address => Balance) public balanceReceived;
 
