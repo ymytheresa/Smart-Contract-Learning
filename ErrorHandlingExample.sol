@@ -1,16 +1,20 @@
 pragma solidity ^0.6.0;
 
 contract ErrorHandling{
-    mapping(address => uint) public balanceReceived;
+    mapping(address => uint64) public balanceReceived;
 
     function receiveMoney() public payable{
-        assert(balanceReceived[msg.sender]+msg.value >= balanceReceived[msg.sender]);
-        balanceReceived[msg.sender] += msg.value;
+        assert(balanceReceived[msg.sender]+ uint64(msg.value) >= balanceReceived[msg.sender]);
+        balanceReceived[msg.sender] += uint64(msg.value);
     }
 
     function withdrawMoeny(address payable _to, uint _amount) public {
-        assert(balanceReceived[msg.sender] - _amount >= 0);
+        // THIS SHOULD BE REQUIRE!!!
+        // assert(balanceReceived[msg.sender] - _amount >= 0);
+        require(balanceReceived[msg.sender] >= _amount);
+        // this condition should not happen but need it to check
+        assert(balanceReceived[msg.sender] - _amount <= balanceReceived[msg.sender]);
         _to.transfer(_amount);
-        balanceReceived[msg.sender] -= _amount;
+        balanceReceived[msg.sender] -= uint64(_amount); //mapping need uint64 type
     }
 }
