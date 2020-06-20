@@ -17,4 +17,14 @@ contract ErrorHandling{
         _to.transfer(_amount);
         balanceReceived[msg.sender] -= uint64(_amount); //mapping need uint64 type
     }
+
+    function execute() public{
+        try externalContract.someFunction.gas(20)(){
+            //change the gas limit to 20 
+            }
+            catch (bytes memory returnData){
+                emit ReturnDataEvent(returnData);
+            }
+        }
+    }
 }
