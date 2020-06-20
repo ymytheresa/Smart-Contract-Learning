@@ -1,0 +1,22 @@
+{
+  "name": "web3slearning",
+  "version": "1.0.0",
+  "description": "For self learning use",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ymytheresa/Smart-Contract-Learning.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ymytheresa/Smart-Contract-Learning/issues"
+  },
+  "homepage": "https://github.com/ymytheresa/Smart-Contract-Learning#readme",
+  "dependencies": {
+    "web3": "^1.2.9"
+  }
+}

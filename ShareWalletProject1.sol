@@ -1,6 +1,6 @@
 pragma solidity ^0.6.1;
 
-contract SharedWallet{
+contract SharedWalletAttempt{
     address owner;
     uint coinPrice;
     uint allowance;
