@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ymytheresa/Smart-Contract-Learning#readme",
   "dependencies": {
-    "web3": "^1.2.9"
+    "web3": "^1.2.9",
+    "web3.js-browser": "^0.2.0"
   }
 }

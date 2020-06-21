@@ -20,17 +20,22 @@ contract Allowance is Ownable{
     mapping(address => uint) allowances;
     event allowanceChanged(address indexed _from, address indexed _to, uint _toOldAmount, uint _toNewAmount);
 
-    modifier ownerOrAllowed(uint _amount){
-        require(msg.sender == owner() || _amount <= allowances[msg.sender], "not allowed");
+    modifier isOwner{
+        require(msg.sender == owner, "not owner");
         _;
     }
 
-    function addAllowance(address _to, uint _amount) public ownerOrAllowed(_amount){
-        allowances[_to] += _amount;
-        emit allowanceChanged(msg.sender, )
+    modifier isEnough(uint _amount){
+        require(allowances[msg.sender] >= _amount, "not enough");
+        _;
     }
 
-    function reduceAllowance(address _to, uint _amount) public ownerOrAllowed(_amount){
+    function setAllowance(address _to, uint _amount) public isOwner{
+        emit allowanceChanged(owner(), _to, allowances[_to], allowances[_to]+_amount);
+        allowances[_to] += _amount;
+    }
+
+    function reduceAllowance(address _to, uint _amount) public isEnough(_amount){
         allowances[_to] -= _amount;
     }
 }
@@ -40,7 +45,7 @@ contract SharedWallet is Ownable, Allowance{
 
     }
 
-    function withdrawMoeny(address payable _to, umsg.sender _amount) public ownerOrAllowed(_amount){
+    function withdrawMoeny(address payable _to, umsg.sender _amount) public isEnough(_amount){
         require(address(this).balance >= _amount, "not enough balance");
         if(msg.sender != owner()){
             reduceAllowance(_to, _amount);
