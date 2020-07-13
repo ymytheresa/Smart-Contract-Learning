@@ -1,0 +1,28 @@
+{
+  "name": "ethereum-solidity-course-learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "compile.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "@openzeppelin/cli": "^2.8.2",
+    "ganache-cli": "^6.9.1",
+    "mocha": "^8.0.1",
+    "solc": "^0.6.11",
+    "truffle": "^5.1.34",
+    "web3": "^1.2.9"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ymytheresa/ethereum-solidity-course-learning.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ymytheresa/ethereum-solidity-course-learning/issues"
+  },
+  "homepage": "https://github.com/ymytheresa/ethereum-solidity-course-learning#readme"
+}
