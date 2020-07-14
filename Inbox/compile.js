@@ -24,6 +24,9 @@ settings: {
 
 const output = JSON.parse(solc.compile(JSON.stringify(input)));
 
-// module.exports = output.contracts["Inbox.sol"].Inbox;
+module.exports = output.contracts["Inbox.sol"].Inbox; //immediate access to inbox 
 
 console.log(output);
+
+//interface = abi
+//bytecode = machine code, use for new deploy instance

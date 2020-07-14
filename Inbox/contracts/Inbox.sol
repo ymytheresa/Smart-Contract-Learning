@@ -12,4 +12,6 @@ contract Inbox {
     function setMessage(string memory newMessage) public {
         message = newMessage;
     }
+
+    
 }
