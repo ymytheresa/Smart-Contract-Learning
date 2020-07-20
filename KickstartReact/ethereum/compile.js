@@ -33,6 +33,7 @@ const input = {
 const output = JSON.parse(solc.compile(JSON.stringify(input)));
 const contracts = output.contracts[contractFileName];   //there will be two compiled contracts since have 2 contracts code inside the same solc file
 
+//save compiled contracts abi to the build folder
 for (let contract in contracts){
     fs.outputJSONSync(
         path.resolve(buildPath, `${contract}.json`),
