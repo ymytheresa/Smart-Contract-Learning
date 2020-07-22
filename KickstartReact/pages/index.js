@@ -17,12 +17,13 @@ class CampaignIndex extends Component {
     //Link as, built in properties. Used for dynamic routing
     //CAMPAIGN (an array of campaign). (an array of address)
     //campaign is sent to props of Link (address of that campaign) !!https://linguinecode.com/post/complete-guide-to-navigation-with-next-js-links!! query to send props
+    //the file name for rerouting must be inside [], or else refresh will cause link broken
     renderCampaigns() {
         const items = this.props.campaigns.map(campaign => {
             return {
                 header: campaign,
                 description: (
-                    <Link href={{pathname:"/campaigns/show", query:{campaign}}} as={`/campaigns/${campaign}` }>
+                    <Link href={{pathname:"/campaigns/[campaign]", query:{campaign}}} as={`/campaigns/${campaign}` }>
                         <a>View Campaign</a>
                     </Link>
                 ),
