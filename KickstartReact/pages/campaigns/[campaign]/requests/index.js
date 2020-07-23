@@ -7,11 +7,11 @@ import Campaign from "../../../../ethereum/campaign";
 
 class RequestIndex extends Component {
     static async getInitialProps(context){
-        const address = context.query.address;
-        console.log(address);
+        const address = context.query.campaign;
+        console.log(context.query);
         const campaign = Campaign(address);
         return {
-            address: context.query.address
+            address: context.query.campaign
         };
     }
     render() {

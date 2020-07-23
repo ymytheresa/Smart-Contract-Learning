@@ -31,24 +31,31 @@ class RequestNew extends Component {
           const accounts = await web3.eth.getAccounts();
           await campaign.methods
             .createRequest(description, web3.utils.toWei(value, "ether"), recipient)
-            .send({ from: accounts[0] });
+            .send({ from: accounts[0]});
     
-          Router.push(
-            "/campaigns/[campaign]/requests",
-            `/campaigns/${this.props.address}/requests`
-          );
+        Router.push(
+        "/campaigns/[campaign]/requests",
+        `/campaigns/${this.props.address}/requests`
+        );
+
         } catch (err) {
           this.setState({ errorMessage: err.message });
         }
         this.setState({loading: false});
     };
-
-    // onSubmit()
-    
+   
     render() {
         return (
             <Layout>
                 <h3>Create Request</h3>
+                <Link 
+                    href={{pathname:"/campaigns/[campaign]/requests"}} 
+                    as={`/campaigns/${this.props.address}/requests/` }
+                >
+                    <a>
+                        <Button primary>Back</Button>
+                    </a>
+                </Link>
                 <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
                     <Form.Field>
                         <Label>Description</Label>

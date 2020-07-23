@@ -23,7 +23,7 @@ class CampaignIndex extends Component {
             return {
                 header: campaign,
                 description: (
-                    <Link href={{pathname:"/campaigns/[campaign]", query:{campaign}}} as={`/campaigns/${campaign}` }>
+                    <Link href={{pathname:"/campaigns/[campaign]"}} as={`/campaigns/${campaign}` }>
                         <a>View Campaign</a>
                     </Link>
                 ),
