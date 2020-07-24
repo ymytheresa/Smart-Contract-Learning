@@ -20,11 +20,7 @@
     "/_polyfills": [
       "static/runtime/polyfills.js"
     ],
-    "/campaigns/[campaign]": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/campaigns/[campaign]/requests/new": [
+    "/campaigns/[campaign]/requests": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

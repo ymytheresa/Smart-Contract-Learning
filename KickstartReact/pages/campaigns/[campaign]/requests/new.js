@@ -47,15 +47,13 @@ class RequestNew extends Component {
     render() {
         return (
             <Layout>
-                <h3>Create Request</h3>
                 <Link 
                     href={{pathname:"/campaigns/[campaign]/requests"}} 
                     as={`/campaigns/${this.props.address}/requests/` }
-                >
-                    <a>
-                        <Button primary>Back</Button>
-                    </a>
+                    >
+                    <a>Back</a>
                 </Link>
+                <h3>Create Request</h3>
                 <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
                     <Form.Field>
                         <Label>Description</Label>
@@ -87,7 +85,7 @@ class RequestNew extends Component {
                     </Form.Field>
 
                     <Message error header="Error!"  content={this.state.errorMessage}/>
-                    <Button primary>Create</Button>
+                    <Button primary loading={this.state.loading}>Create</Button>
                 </Form>
             </Layout>
         );
